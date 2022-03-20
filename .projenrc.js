@@ -15,7 +15,7 @@ const project = new awscdk.AwsCdkTypeScriptApp({
 
 new YamlFile(project, '.github/workflows/upgrade2.yml', {
   obj: {
-    name: 'upgrade',
+    name: 'upgrade2',
     on: { workflow_dispatch: {}, schedule: [{ cron: '0 0 * * *' }] },
     jobs: {
       upgrade: {
