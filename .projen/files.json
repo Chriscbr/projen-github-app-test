@@ -6,7 +6,6 @@
     ".github/workflows/build.yml",
     ".github/workflows/pull-request-lint.yml",
     ".github/workflows/upgrade.yml",
-    ".github/workflows/upgrade2.yml",
     ".gitignore",
     ".npmignore",
     ".projen/deps.json",
