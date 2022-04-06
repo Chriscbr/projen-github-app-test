@@ -7,6 +7,7 @@ const project = new awscdk.AwsCdkTypeScriptApp({
 
   projenCredentials: github.GithubCredentials.fromApp(),
 
+  autoApproveUpgrades: true,
   autoApproveOptions: {
     allowedUsernames: ['chriscbr-bot[bot]'],
     secret: 'GITHUB_TOKEN',
