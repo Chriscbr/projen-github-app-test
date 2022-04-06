@@ -7,6 +7,9 @@ const project = new awscdk.AwsCdkTypeScriptApp({
 
   projenCredentials: github.GithubCredentials.fromApp(),
 
+  autoApproveOptions: {
+    secret: 'GITHUB_TOKEN',
+  },
   // deps: [],                /* Runtime dependencies of this module. */
   // description: undefined,  /* The description is just a string that helps people understand the purpose of the package. */
   // devDeps: [],             /* Build dependencies for this module. */
