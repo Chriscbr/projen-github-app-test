@@ -1,9 +1,11 @@
-const { awscdk, github } = require('projen');
+const { cdk, github } = require('projen');
 
-const project = new awscdk.AwsCdkTypeScriptApp({
-  cdkVersion: '2.1.0',
+const project = new cdk.JsiiProject({
   defaultReleaseBranch: 'main',
-  name: 'projen-github-app-test',
+  name: 'projen-test-bc7b351',
+  author: 'Christopher Rybicki',
+  authorAddress: 'crybicki98@gmail.com',
+  repositoryUrl: 'https://github.com/Chriscbr/projen-test-bc7b351',
 
   projenCredentials: github.GithubCredentials.fromApp(),
 
@@ -12,10 +14,12 @@ const project = new awscdk.AwsCdkTypeScriptApp({
     allowedUsernames: ['chriscbr-bot[bot]'],
     secret: 'GITHUB_TOKEN',
   },
-  // deps: [],                /* Runtime dependencies of this module. */
-  // description: undefined,  /* The description is just a string that helps people understand the purpose of the package. */
-  // devDeps: [],             /* Build dependencies for this module. */
-  // packageName: undefined,  /* The "name" in package.json. */
+
+  peerDeps: [
+    'projen',
+  ],
+
+  releaseToNpm: true,
 
   mergify: false,
 });

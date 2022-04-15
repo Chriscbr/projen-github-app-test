@@ -1,11 +1,20 @@
-import { App } from 'aws-cdk-lib';
-import { Template } from 'aws-cdk-lib/assertions';
-import { MyStack } from '../src/main';
+import { javascript, Testing } from 'projen';
+import { ContributingFile } from '../src';
 
-test('Snapshot', () => {
-  const app = new App();
-  const stack = new MyStack(app, 'test');
+test('snapshot', () => {
+  const project = new javascript.NodeProject({
+    defaultReleaseBranch: 'main',
+    name: 'test',
+  });
+  new ContributingFile(project);
 
-  const template = Template.fromStack(stack);
-  expect(template.toJSON()).toMatchSnapshot();
+  const output = Testing.synth(project);
+  expect(output['CONTRIBUTING.md']).toMatchInlineSnapshot(`
+"# Contributing
+
+Run the following commands to set up your project:
+\`\`\`
+yarn install --check-files --frozen-lockfile
+\`\`\`"
+`);
 });
