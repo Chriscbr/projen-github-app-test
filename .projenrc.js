@@ -2,10 +2,10 @@ const { cdk, github } = require('projen');
 
 const project = new cdk.JsiiProject({
   defaultReleaseBranch: 'main',
-  name: 'projen-test-bc7b351',
+  name: 'projen-test-component-1',
   author: 'Christopher Rybicki',
   authorAddress: 'crybicki98@gmail.com',
-  repositoryUrl: 'https://github.com/Chriscbr/projen-test-bc7b351',
+  repositoryUrl: 'https://github.com/Chriscbr/projen-test-component-1',
 
   projenCredentials: github.GithubCredentials.fromApp(),
 
